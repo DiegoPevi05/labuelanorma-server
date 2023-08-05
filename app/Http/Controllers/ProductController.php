@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Product_size;
 
 class ProductController extends Controller
 {
@@ -68,6 +69,11 @@ class ProductController extends Controller
             'description' => 'required',
             'details' => 'required',
             'price' => 'required',
+            'tags' => 'nullable',
+            'label' => 'nullable',
+            'is_new' => 'nullable',
+            'is_unity'=> 'nullable',
+            'stock'=>'nullable',
             'category_id' => [
                     'required',
                     function ($attribute, $value, $fail) {
@@ -102,6 +108,25 @@ class ProductController extends Controller
             }
         }
 
+        $tags = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->tags) && is_string($request->tags)) {
+
+            $tags_raw = explode('|', $request->tags);
+
+            foreach ($tags_raw as $tag) {
+                $tag = trim($tag);
+                if (!empty($tag) && is_string($tag)) {
+                    $tags[] = $tag;
+                }
+            }
+        }
+
+        // Convert 'is_new' to a boolean value (true/false)
+        $is_new = isset($validatedData['is_new']) && $validatedData['is_new'] ? true : false;
+
+        // Convert 'is_unity' to a boolean value
+        $is_unity = isset($validatedData['is_unity']) && $validatedData['is_unity'] ? true : false;
 
         // Create a new product with the specified data
         $productData = [
@@ -110,6 +135,11 @@ class ProductController extends Controller
             'details' => $validatedData['details'],
             'price' => $validatedData['price'] ? $validatedData['price'] : 0,
             'category_id' => $validatedData['category_id'],
+            'label' => $validatedData['label'],
+            'tags' => json_encode($tags),
+            'is_new' => $is_new,
+            'is_unity' => $is_unity,
+            'stock' => $is_unity ? $validatedData['stock'] : 0,
         ];
 
         // Assign image URLs to the product data
@@ -123,6 +153,16 @@ class ProductController extends Controller
         // Create a new product with the specified data
         $product = Product::create($productData);
 
+        // Create a new product size if the product stock is per unity
+        if($is_unity){
+            $product_size = Product_size::create([
+                'type' => 'Unidad',
+                'name' => 'UND',
+                'stock' => $validatedData['stock'],
+                'price' => $validatedData['price'],
+                'product_id' => $product->id,
+            ]);
+        }
         // Return a success response or redirect as desired
         return redirect()->route('products.index')->with('success', 'Producto creado exitosamente.');
     }
@@ -165,6 +205,11 @@ class ProductController extends Controller
             'description' => 'required',
             'details' => 'required',
             'price' => 'required',
+            'tags' => 'nullable',
+            'label' => 'nullable',
+            'is_new' => 'nullable',
+            'is_unity'=> 'nullable',
+            'stock'=>'nullable',
             'category_id' => [
                 'required',
                 function ($attribute, $value, $fail) {
@@ -217,6 +262,28 @@ class ProductController extends Controller
             }
         }
 
+
+        $tags = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->tags) && is_string($request->tags)) {
+
+            $tags_raw = explode('|', $request->tags);
+
+            foreach ($tags_raw as $tag) {
+                $tag = trim($tag);
+                if (!empty($tag) && is_string($tag)) {
+                    $tags[] = $tag;
+                }
+            }
+        }
+
+        // Convert 'is_new' to a boolean value (true/false)
+        $is_new = isset($validatedData['is_new']) && $validatedData['is_new'] ? true : false;
+
+
+        // Convert 'is_unity' to a boolean value
+        $is_unity = isset($validatedData['is_unity']) && $validatedData['is_unity'] ? true : false;
+
         // Update the product with the specified data
         $product->update([
             'name' => $validatedData['name'],
@@ -224,11 +291,28 @@ class ProductController extends Controller
             'details' => $validatedData['details'],
             'price' => $validatedData['price'] ? $validatedData['price'] : 0,
             'category_id' => $validatedData['category_id'],
+            'tags' => json_encode($tags),
+            'label' => $validatedData['label'],
+            'is_new' => $is_new,
+            'is_unity' => $is_unity,
+            'stock' => $is_unity ? $validatedData['stock'] : 0,
             'image_url_1' => '/images/products/' . $imageFileNames[0],
             'image_url_2' => isset($imageFileNames[1]) ? '/images/products/' . $imageFileNames[1] : null,
             'image_url_3' => isset($imageFileNames[2]) ? '/images/products/' . $imageFileNames[2] : null,
             'image_url_4' => isset($imageFileNames[3]) ? '/images/products/' . $imageFileNames[3] : null,
         ]);
+
+        // Create a new product size if the product stock is per unity
+        if($is_unity){
+            Product_size::where('id', $product->id)->delete();
+            $product_size = Product_size::create([
+                'type' => 'Unidad',
+                'name' => 'UND',
+                'stock' => $validatedData['stock'],
+                'price' => $validatedData['price'],
+                'product_id' => $product->id,
+            ]);
+        }
 
         // Return a success response or redirect as desired
         return redirect()->route('products.index')->with('success', 'Producto actualizado exitosamente.');

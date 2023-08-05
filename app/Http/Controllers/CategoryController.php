@@ -62,13 +62,14 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'section' => 'required',
+            'section' => 'required'
         ]);
+
 
         // Create a new user with the specified role
         $category = Category::create([
             'name' => $validatedData['name'],
-            'section' => $validatedData['section'],
+            'section' => $validatedData['section']
         ]);
         // Return a success response or redirect as desired
         return redirect()->route('categories.index')->with('success', 'Categoria creada exitosamente.');

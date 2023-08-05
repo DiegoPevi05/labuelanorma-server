@@ -9,8 +9,6 @@ class Product extends Model
 {
     use HasFactory;
 
-    use HasFactory;
-
     protected $table = 'products';
 
     protected $fillable = [
@@ -18,6 +16,11 @@ class Product extends Model
         'description',
         'details',
         'price',
+        'tags',
+        'label',
+        'is_new',
+        'is_unity',
+        'stock',
         'category_id',
         'image_url_1',
         'image_url_2',

@@ -15,6 +15,7 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\WebContentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::resource('webcontents', WebContentController::class);
         Route::resource('orders', OrderController::class);
         Route::resource('invoices', InvoiceController::class);
+        Route::resource('partners',PartnerController::class);
     });
     // Group for routes accessible to users with the 'ADMIN' role
     Route::middleware('role:' . User::ROLE_ADMIN)->group(function () {

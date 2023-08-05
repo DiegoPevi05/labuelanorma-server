@@ -61,13 +61,14 @@ class WebContentController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $validatedData = $request->validate([
             'section' => 'required',
             'sub_section' => 'required',
             'content_type' => 'required',
             'content' => 'required',
         ]);
+
 
         $webContentData = [];
 
@@ -77,7 +78,7 @@ class WebContentController extends Controller
 
         if($validatedData['content_type'] == 'image'){
             $destinationPath = public_path() . '/images/web';
-            $imageFileName;
+            $imageFileName = null;
 
             if ($request->hasFile('content') && $request->file('content')->isValid()) {
                 $file = $request->file('content');
@@ -85,9 +86,8 @@ class WebContentController extends Controller
                 $fileName = 'web_' . time() . '.' . $extension;
                 $file->move($destinationPath, $fileName);
                 $imageFileName = $fileName;
+                $webContentData['content'] =  '/images/web/' . $imageFileName;
             }
-            $webContentData['content'] =  '/images/web/' . $imageFileName;
-
         }else{
 
             $webContentData['content'] = $validatedData['content'];
@@ -148,7 +148,7 @@ class WebContentController extends Controller
 
         if($validatedData['content_type'] == 'image'){
             $destinationPath = public_path() . '/images/web';
-            $imageFileName;
+            $imageFileName = null;
             $oldImageName = $webcontent->content;
 
             if ($request->hasFile('content') && $request->file('content')->isValid()) {
@@ -188,7 +188,7 @@ class WebContentController extends Controller
      */
     public function destroy(WebContent $webcontent)
     {
-        // delete image realated 
+        // delete image realated
         if($webcontent->content_type === 'image'){
             $imageWebcontent = $webcontent->content;
 

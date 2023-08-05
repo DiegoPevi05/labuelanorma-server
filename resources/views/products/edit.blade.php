@@ -23,7 +23,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="details"> Descripción del Producto </label>
+                        <label for="details"> Detalles del Producto </label>
                         <textarea  class="form-control @error('details') is-invalid @enderror" id="details" name="details">{{ old('details', $product->details) }}</textarea>
                         @error('details')
                             <span class="invalid-feedback">{{ $message }}</span>
@@ -34,6 +34,52 @@
                         <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" min="0" step="any" value="{{ old('price', $product->price) }}">
                         @error('price')
                             <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tags"> Etiquetas del Producto !Importante las etiquetas deben se separadas por "|"</label>
+                        <textarea  class="form-control @error('tags') is-invalid @enderror" id="tags" name="tags">{{ old('tags', implode('|', json_decode($product->tags))) }}</textarea>
+                        @error('tags')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="label">Etiqueta del Producto</label>
+                        <select class="form-control @error('label') is-invalid @enderror" id="label" name="label">
+                            <option {{ $product->label == 'Ninguno' ? 'selected="selected"' : '' }} value="Ninguno">Ninguno</option>
+                            <option {{ $product->label == 'Novedades' ? 'selected="selected"' : '' }} value="Novedades">Novedades</option>
+                            <option {{ $product->label == 'DeEpoca' ? 'selected="selected"' : '' }} value="DeEpoca">DeEpoca</option>
+                        </select>
+                        @error('label')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="is_new">El producto es nuevo?</label>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input @error('is_new') is-invalid @enderror" id="is_new" name="is_new" {{ old('is_new', $product->is_new) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="is_new">Yes</label>
+                        </div>
+                        @error('is_new')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="is_unity">El producto se vende por unidad o talla?</label>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input @error('is_unity') is-invalid @enderror" id="is_unity" name="is_unity" {{ old('is_unity', $product->is_unity) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="is_unity">Yes</label>
+                        </div>
+                        @error('is_unity')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Stock del Producto si se vende por unidad</label>
+                        <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" min="0" value="{{ old('stock',$product->stock) }}">
+                        @error('stock')
+                        <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -109,14 +155,14 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/products" class="btn btn-secondary">Volver a la lista de Categorias</a>
+                    <a href="/products" class="btn btn-secondary">Volver a la lista de Productos</a>
                 </div>
             </div>
         @else
             <div class="row mt-3">
                 <div class="row-5">
                     <div class="alert alert-danger" role="alert">
-                        "Hubo un error al intentar traer la información de la categoria"
+                        "Hubo un error al intentar traer la información del Producto"
                     </div>
                     <a href="/products" class="btn btn-primary">Voler a la lista</a>
                 </div>

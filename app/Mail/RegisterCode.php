@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ResetCode extends Mailable
+class RegisterCode extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -21,10 +21,10 @@ class ResetCode extends Mailable
 
     public function build()
     {
-        return $this->view('emails.recover-password', [
-                            'name' => $this->name,
-                            'code' => $this->code
-                           ])
-                    ->subject('Recuperación de Contraseña');
+        return $this->view('emails.registration', [
+            'name' => $this->name,
+            'code' => $this->code
+        ])
+            ->subject('Activación de Cuenta');
     }
 }

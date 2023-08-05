@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminUserSeeder::class,
-            WebContentSeeder::class,
-            // Add other seeders if needed
         ]);
 
     }

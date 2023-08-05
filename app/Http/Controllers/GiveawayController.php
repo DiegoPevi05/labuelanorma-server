@@ -194,7 +194,7 @@ class GiveawayController extends Controller
             'image_url' => '/images/giveaways/' . $imageFileName,
         ];
         // Create a new giveaway with the specified data
-        $giveaway = Giveaway::create($giveawayData);
+        $giveaway->update($giveawayData);
 
         // Return a success response or redirect as desired
         return redirect()->route('giveaways.index')->with('success', 'Sorteo creado exitosamente.');

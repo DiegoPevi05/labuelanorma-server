@@ -23,6 +23,9 @@ Route::group(['middleware' => 'api'],function(){
     // Registration endpoint
     Route::post('/register', [AuthenticationPublicController::class, 'publicRegister']);
 
+    // Activation Account
+    Route::post('/validate-account', [AuthenticationPublicController::class, 'validateRegistration']);
+
     // Recover Password endpoint
     Route::post('/recover-password', [AuthenticationPublicController::class, 'recoverPassword']);
 
@@ -42,7 +45,10 @@ Route::group(['middleware' => 'api'],function(){
     // Route to validate discount code
     Route::get('/validate-discount-code', [WebPublicController::class, 'ValidateDiscountCode']);
     //Route to get Products
-    Route::get('/products/{category_id}[/{page}]', [WebPublicController::class, 'GetProductsByCategory']);
+    Route::get('/products-public', [WebPublicController::class, 'GetProductsByFilter']);
+
+    //Route to get Giveawas
+    Route::get('/giveaways-all', [WebPublicController::class, 'GetGiveaways']);
 
 
 
@@ -58,6 +64,9 @@ Route::group(['middleware' => 'api'],function(){
             ]);
         });
 
+        //Route to get Giveawas
+        Route::get('/giveaways-user', [WebPublicController::class, 'GetGiveawaysAuthorized']);
+
         route::post('/giveaway-participate', function(Request $request){
             if($request->user_id != $request->user->id ){
                 return response()->json([
@@ -65,7 +74,7 @@ Route::group(['middleware' => 'api'],function(){
                 ], 403);
             }
 
-            if(Giveaway::where('id', $request->giveaway_id)->exists() == false){
+            if(!Giveaway::where('id', $request->giveaway_id)->exists()){
                 return response()->json([
                     'message' => 'El sorteo no existe'
                 ], 404);
@@ -77,8 +86,8 @@ Route::group(['middleware' => 'api'],function(){
                 ], 403);
             }else{
                 $giveawayparticipantData = [
-                    'giveaway_id' => $validatedData['giveaway_id'],
-                    'user_id' => $validatedData['user_id'],
+                    'giveaway_id' => $request->giveaway_id,
+                    'user_id' =>$request->user->id,
                 ];
                 $giveawayParticipant = Giveaway_participants::create($giveawayparticipantData);
                 return response()->json([

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid main-container">
             <div class="col-12">
-                <h4 class="mb-3">Nuevo Sorteo</h4>
+                <h4 class="mb-3">Nuevo Contenido Web</h4>
                 <form method="POST" action="{{ route('webcontents.store') }}" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
@@ -35,7 +35,7 @@
 
                     <div id="content-link" class="form-group" style="display: none;">
                         <label for="content">Contenido de la Web (Enlace) </label>
-                        <input type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content" value="{{ old('content') }}">
+                        <input type="text" class="form-control @error('content') is-invalid @enderror" id="link_content" name="content" value="{{ old('content') }}">
                         @error('content')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -43,7 +43,7 @@
 
                     <div id="content-text" class="form-group" style="display: none;">
                         <label for="content">Contenido de la Web (Texto) </label>
-                        <textarea  class="form-control @error('content') is-invalid @enderror" id="content" name="content">{{ old('content') }}</textarea>
+                        <textarea  class="form-control @error('content') is-invalid @enderror" id="text_content" name="content">{{ old('content') }}</textarea>
                         @error('content')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -51,7 +51,7 @@
 
                     <div id="content-file" class="form-group" style="display: none;">
                         <label for="content">Conteido Visua le la pagina</label>
-                        <input type="file" class="form-control @error('content') is-invalid @enderror" id="content" name="content">
+                        <input type="file" class="form-control @error('content') is-invalid @enderror" id="file_content" name="content">
                         @error('content')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

@@ -8,10 +8,14 @@
                     @csrf
                     @method('POST')
                     <div class="form-group">
-                        <label for="type">Tipo de Talla </label>
-                        <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" value="{{ old('type') }}">
+                        <label for="type">Tipo de Talla</label>
+                        <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                            <option {{ old('type') == "Numerica" ? 'selected="selected"' : '' }} value="Numerica">Numerica</option>
+                            <option {{ old('type') == "Numerico Romano" ? 'selected="selected"' : '' }} value="Numerico Romano">Numerico Romano</option>
+                            <option {{ old('type') == "Unidad" ? 'selected="selected"' : '' }} value="Unidad">Unidad</option>
+                        </select>
                         @error('type')
-                            <span class="invalid-feedback">{{ $message }}</span>
+                        <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -47,11 +51,11 @@
                         @enderror
                     </div>
                     <div class="d-flex justify-content-start my-4">
-                      <button type="submit" class="btn btn-primary w-auto">Crear Producto</button>
+                      <button type="submit" class="btn btn-primary w-auto">Crear Talla de Producto</button>
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/productsizes" class="btn btn-secondary">Volver a la lista de Categorias</a>
+                    <a href="/productsizes" class="btn btn-secondary">Volver a la lista de Talla de Productos</a>
                 </div>
             </div>
     </div>

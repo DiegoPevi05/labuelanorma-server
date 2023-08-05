@@ -9,10 +9,14 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="type">Tipo de Talla </label>
-                        <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" value="{{ old('type', $productsize->type ) }}">
+                        <label for="type">Tipo de Talla</label>
+                        <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                            <option {{ $productsize->type== "Numerica" ? 'selected="selected"' : '' }} value="Numerica">Numerica</option>
+                            <option {{ $productsize->type == "Numerico Romano" ? 'selected="selected"' : '' }} value="Numerico Romano">Numerico Romano</option>
+                            <option {{ $productsize->type == "Unidad" ? 'selected="selected"' : '' }} value="Unidad">Unidad</option>
+                        </select>
                         @error('type')
-                            <span class="invalid-feedback">{{ $message }}</span>
+                        <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -52,7 +56,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/productsizes" class="btn btn-secondary">Volver a la lista de Productos</a>
+                    <a href="/productsizes" class="btn btn-secondary">Volver a la lista de Tallas de Productos</a>
                 </div>
             </div>
         @else
