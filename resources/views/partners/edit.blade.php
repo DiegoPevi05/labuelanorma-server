@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <div>
                             <label>Link de la actual imagen 1:</label>
-                            <a href="{{ $partner->image_brand }}" target="_blank">Imagen</a>
+                            <a href="{{env('BACKEND_URL_IMAGE')}}{{ $partner->image_brand }}" target="_blank">Imagen</a>
                         </div>
                         <label for="image">Imagen del partner (Obligatoria)</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">

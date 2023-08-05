@@ -53,7 +53,7 @@
                     <div id="content-file" class="form-group" style="display: none;">
                         <div>
                             <label>Link de la actual imagen:</label>
-                            <a href="{{ $webcontent->content }}" target="_blank">Imagen</a>
+                            <a href="{{env('BACKEND_URL_IMAGE')}}{{ $webcontent->content }}" target="_blank">Imagen</a>
                         </div>
                         <label for="content">Conteido Visual le la pagina</label>
                         <input type="file" class="form-control @error('content') is-invalid @enderror" id="content" name="content">

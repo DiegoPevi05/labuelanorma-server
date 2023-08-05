@@ -71,7 +71,7 @@
                                 @endif
                                 <td>
                                     <div class="btn-group btn-group-sm gap-2 d-flex flex-col" role="group">
-                                        <a href="https://labuelanorma.com/server/public{{ $giveaway->image_url }}" target="_blank">Imagen 1</a>
+                                        <a href="{{env('BACKEND_URL_IMAGE')}}{{ $giveaway->image_url }}" target="_blank">Imagen 1</a>
                                     </div>
                                 </td>
                                 <td>

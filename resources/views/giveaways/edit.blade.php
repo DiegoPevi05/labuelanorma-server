@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <div>
                             <label>Link de la actual imagen:</label>
-                            <a href="{{ $giveaway->image_url }}" target="_blank">Imagen 1</a>
+                            <a href="{{env('BACKEND_URL_IMAGE')}}{{ $giveaway->image_url }}" target="_blank">Imagen 1</a>
                         </div>
                         <label for="image_1">Imagen del sorteo (Obligatoria)</label>
                         <input type="file" class="form-control @error('image_1') is-invalid @enderror" id="image_1" name="image_1">

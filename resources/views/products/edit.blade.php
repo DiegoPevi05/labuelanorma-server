@@ -97,7 +97,7 @@
                     <div class="form-group">
                         <div>
                             <label>Link de la actual imagen 1:</label>
-                            <a href="{{ $product->image_url_1 }}" target="_blank">Imagen 1</a>
+                            <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_1 }}" target="_blank">Imagen 1</a>
                         </div>
                         <label for="image_1">Imagen 1 del Producto (Obligatoria)</label>
                         <input type="file" class="form-control @error('image_1') is-invalid @enderror" id="image_1" name="image_1">
@@ -109,7 +109,7 @@
                         <div>
                         @if ($product->image_2)
                             <label>Link de la actual imagen 2:</label>
-                            <a href="{{ $product->image_url_2 }}" target="_blank">Imagen 2</a>
+                            <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_2 }}" target="_blank">Imagen 2</a>
                         @else
                             <label>Imagen 2 no cargada</label>
                         @endif
@@ -124,7 +124,7 @@
                         <div>
                         @if ($product->image_3)
                             <label>Link de la actual imagen 3:</label>
-                            <a href="{{ $product->image_url_3 }}" target="_blank">Imagen 3</a>
+                            <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_3 }}" target="_blank">Imagen 3</a>
                         @else
                             <label>Imagen 3 no cargada</label>
                         @endif
@@ -139,7 +139,7 @@
                         <div>
                         @if ($product->image_4)
                             <label>Link de la actual imagen 4:</label>
-                            <a href="{{ $product->image_url_4 }}" target="_blank">Imagen 4</a>
+                            <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_4 }}" target="_blank">Imagen 4</a>
                         @else
                             <label>Imagen 4 no cargada</label>
                         @endif
