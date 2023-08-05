@@ -64,7 +64,7 @@
                                 @if ($webcontent->content_type == 'image')
                                     <td>
                                         <div class="btn-group btn-group-sm gap-2 d-flex flex-col" role="group">
-                                            <a href="{{ $webcontent->content }}" target="_blank">Imagen 1</a>
+                                            <a href="https://labuelanorma.com/server/public{{ $webcontent->content }}" target="_blank">Imagen 1</a>
                                         </div>
                                     </td>
                                 @else

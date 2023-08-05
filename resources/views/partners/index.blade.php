@@ -68,7 +68,7 @@
                                 <td>{{ implode('|', json_decode($partner->tags)) }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm gap-2 d-flex flex-col" role="group">
-                                        <a href="{{ $partner->image_brand }}" target="_blank">Imagen</a>
+                                        <a href="https://labuelanorma.com/server/public{{ $partner->image_brand }}" target="_blank">Imagen</a>
                                     </div>
                                 </td>
                                 <td>
