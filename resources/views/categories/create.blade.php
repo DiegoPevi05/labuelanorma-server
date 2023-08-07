@@ -26,7 +26,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/categories" class="btn btn-secondary">Volver a la lista de Categorias</a>
+                    <a href={{ route('categories.index') }} class="btn btn-secondary">Volver a la lista de Categorias</a>
                 </div>
             </div>
     </div>

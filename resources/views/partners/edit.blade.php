@@ -59,7 +59,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/partners" class="btn btn-secondary">Volver a la lista de Partners</a>
+                    <a href={{ route('partners.index') }} class="btn btn-secondary">Volver a la lista de Partners</a>
                 </div>
             </div>
         @else
@@ -68,7 +68,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información del Partner"
                     </div>
-                    <a href="/partners" class="btn btn-primary">Voler a la lista</a>
+                    <a href={{ route('partners.index') }} class="btn btn-primary">Voler a la lista</a>
                 </div>
             </div>
         @endif

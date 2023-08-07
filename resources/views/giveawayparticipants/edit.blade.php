@@ -27,7 +27,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/giveawayparticipants" class="btn btn-secondary">Volver a la lista de Participantes</a>
+                    <a href={{ route('giveawayparticipants.index') }} class="btn btn-secondary">Volver a la lista de Participantes</a>
                 </div>
             </div>
         @else
@@ -36,7 +36,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información del participante del sorteo"
                     </div>
-                    <a href="/giveawayparticipants" class="btn btn-primary">Voler a la lista de Participantes</a>
+                    <a href={{ route('giveawayparticipants.index') }} class="btn btn-primary">Voler a la lista de Participantes</a>
                 </div>
             </div>
         @endif

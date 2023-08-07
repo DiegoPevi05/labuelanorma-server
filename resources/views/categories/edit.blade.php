@@ -27,7 +27,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/categories" class="btn btn-secondary">Volver a la lista de Categorias</a>
+                    <a href={{ route('categories.index') }} class="btn btn-secondary">Volver a la lista de Categorias</a>
                 </div>
             </div>
         @else
@@ -36,7 +36,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información de la categoria"
                     </div>
-                    <a href="/categories" class="btn btn-primary">Voler a la lista</a>
+                    <a href={{ route('categories.index') }} class="btn btn-primary">Voler a la lista</a>
                 </div>
             </div>
         @endif

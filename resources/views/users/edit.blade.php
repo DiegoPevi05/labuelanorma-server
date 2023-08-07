@@ -44,7 +44,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/users" class="btn btn-secondary">Volver a la lista de Usuarios</a>
+                    <a href={{ route('users.index') }} class="btn btn-secondary">Volver a la lista de Usuarios</a>
                 </div>
             </div>
         @else
@@ -53,7 +53,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información usuario"
                     </div>
-                    <a href="/users" class="btn btn-primary">Voler a la lista</a>
+                    <a href={{ route('users.index') }} class="btn btn-primary">Voler a la lista</a>
                 </div>
             </div>
         @endif

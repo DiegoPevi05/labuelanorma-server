@@ -50,7 +50,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/discountcodes" class="btn btn-secondary">Volver a la lista de Descuentos</a>
+                    <a href={{ route('discountcodes.index') }} class="btn btn-secondary">Volver a la lista de Descuentos</a>
                 </div>
             </div>
     </div>

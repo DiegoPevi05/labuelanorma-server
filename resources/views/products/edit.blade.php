@@ -107,7 +107,7 @@
                     </div>
                     <div class="form-group">
                         <div>
-                        @if ($product->image_2)
+                        @if ($product->image_url_2)
                             <label>Link de la actual imagen 2:</label>
                             <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_2 }}" target="_blank">Imagen 2</a>
                         @else
@@ -122,7 +122,7 @@
                     </div>
                     <div class="form-group">
                         <div>
-                        @if ($product->image_3)
+                        @if ($product->image_url_3)
                             <label>Link de la actual imagen 3:</label>
                             <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_3 }}" target="_blank">Imagen 3</a>
                         @else
@@ -137,7 +137,7 @@
                     </div>
                     <div class="form-group">
                         <div>
-                        @if ($product->image_4)
+                        @if ($product->image_url_4)
                             <label>Link de la actual imagen 4:</label>
                             <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_4 }}" target="_blank">Imagen 4</a>
                         @else
@@ -155,7 +155,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/products" class="btn btn-secondary">Volver a la lista de Productos</a>
+                    <a href={{ route('products.index') }} class="btn btn-secondary">Volver a la lista de Productos</a>
                 </div>
             </div>
         @else
@@ -164,7 +164,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información del Producto"
                     </div>
-                    <a href="/products" class="btn btn-primary">Voler a la lista</a>
+                    <a href={{ route('products.index') }} class="btn btn-primary">Voler a la lista</a>
                 </div>
             </div>
         @endif

@@ -69,15 +69,15 @@
                                 <td>{{ $product->is_unity }}</td>
                                 <td>{{ $product->stock }}</td>
                                 <td>
-                                    <div class="btn-group btn-group-sm gap-2 d-flex flex-col" role="group">
+                                    <div class="btn-group btn-group-sm gap-2 d-flex flex-col flex-wrap" role="group">
                                         <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_1 }}" target="_blank">Imagen 1</a>
-                                        @if ($product->image_2)
+                                        @if ($product->image_url_2)
                                             <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_2 }}" target="_blank">Imagen 2</a>
                                         @endif
-                                        @if ($product->image_3)
+                                        @if ($product->image_url_3)
                                             <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_3 }}" target="_blank">Imagen 3</a>
                                         @endif
-                                        @if ($product->image_4)
+                                        @if ($product->image_url_4)
                                             <a href="{{env('BACKEND_URL_IMAGE')}}{{ $product->image_url_4 }}" target="_blank">Imagen 4</a>
                                         @endif
                                     </div>

@@ -125,7 +125,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/products" class="btn btn-secondary">Volver a la lista de Productos</a>
+                    <a href={{ route('products.index') }} class="btn btn-secondary">Volver a la lista de Productos</a>
                 </div>
             </div>
     </div>

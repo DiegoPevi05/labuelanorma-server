@@ -55,7 +55,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/productsizes" class="btn btn-secondary">Volver a la lista de Talla de Productos</a>
+                    <a href={{ route('productsizes.index') }} class="btn btn-secondary">Volver a la lista de Talla de Productos</a>
                 </div>
             </div>
     </div>

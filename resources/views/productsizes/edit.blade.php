@@ -56,7 +56,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/productsizes" class="btn btn-secondary">Volver a la lista de Tallas de Productos</a>
+                    <a href={{ route('productsizes.index') }} class="btn btn-secondary">Volver a la lista de Tallas de Productos</a>
                 </div>
             </div>
         @else
@@ -65,7 +65,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información de la Talla de Producto"
                     </div>
-                    <a href="/productsizes" class="btn btn-primary">Voler a la lista</a>
+                    <a href={{ route('productsizes.index') }} class="btn btn-primary">Voler a la lista</a>
                 </div>
             </div>
         @endif

@@ -20,7 +20,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/subscribers" class="btn btn-secondary">Volver a la lista de Subscriptores</a>
+                    <a href={{ route('subscribers.index') }} class="btn btn-secondary">Volver a la lista de Subscriptores</a>
                 </div>
             </div>
         @else
@@ -29,7 +29,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información del subscriptor"
                     </div>
-                    <a href="/subscribers" class="btn btn-primary">Voler a la lista de Subscriptores</a>
+                    <a href={{ route('subscribers.index') }} class="btn btn-primary">Voler a la lista de Subscriptores</a>
                 </div>
             </div>
         @endif

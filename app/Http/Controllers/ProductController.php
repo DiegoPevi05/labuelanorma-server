@@ -108,6 +108,8 @@ class ProductController extends Controller
             }
         }
 
+
+
         $tags = [];
         // validate if the field is not empty and is a string
         if (!empty($request->tags) && is_string($request->tags)) {

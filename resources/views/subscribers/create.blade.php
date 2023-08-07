@@ -19,7 +19,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/subscribers" class="btn btn-secondary">Volver a la lista de Subscriptores</a>
+                    <a href={{ route('subscribers.index') }} class="btn btn-secondary">Volver a la lista de Subscriptores</a>
                 </div>
             </div>
     </div>

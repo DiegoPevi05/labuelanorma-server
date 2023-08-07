@@ -26,7 +26,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/giveawayparticipants" class="btn btn-secondary">Volver a la lista de Participante de sorteo</a>
+                    <a href={{ route('giveawayparticipants.index') }} class="btn btn-secondary">Volver a la lista de Participante de sorteo</a>
                 </div>
             </div>
     </div>

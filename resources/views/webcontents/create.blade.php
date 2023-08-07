@@ -62,7 +62,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/webcontents" class="btn btn-secondary">Volver a la lista de Contenido Web</a>
+                    <a href={{ route('webcontents.index') }} class="btn btn-secondary">Volver a la lista de Contenido Web</a>
                 </div>
             </div>
     </div>

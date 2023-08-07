@@ -20,23 +20,23 @@
       @endif
       <li>
         <a href={{ route('webcontents.index') }} class="nav-link text-white {{ request()->is('webcontents*') ? 'active' : '' }}">
-          Contenido Web 
+          Contenido Web
         </a>
       </li>
 
       <li>
         <a href={{ route('giveaways.index') }} class="nav-link text-white {{ request()->is('giveaways*') ? 'active' : '' }}">
-          Sorteos 
+          Sorteos
         </a>
       </li>
       <li>
         <a href={{ route('giveawayparticipants.index') }} class="nav-link text-white {{ request()->is('giveawayparticipants*') ? 'active' : '' }}">
-          Participantes de Sorteos 
+          Participantes de Sorteos
         </a>
       </li>
       <li>
         <a href={{ route('partners.index') }} class="nav-link text-white {{ request()->is('partners*') ? 'active' : '' }}">
-          Partners 
+          Partners
         </a>
       </li>
       <li>
@@ -62,11 +62,11 @@
 
       <li>
         <a href={{ route('subscribers.index') }} class="nav-link text-white {{ request()->is('subscribers*') ? 'active' : '' }}">
-          Subscriptores 
+          Subscriptores
         </a>
       </li>
       <li>
-        <a href={{ route('orders.index') }} class="nav-link text-white {{ request()->is('orders*') ? 'active' : '' }}">
+        <a href={{ route('home') }} class="nav-link text-white {{ request()->is('orders*') ? 'active' : '' }}">
            Ordenes
         </a>
       </li>

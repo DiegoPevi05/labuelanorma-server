@@ -54,7 +54,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/partners" class="btn btn-secondary">Volver a la lista de Partners</a>
+                    <a href={{ route('partners.index') }} class="btn btn-secondary">Volver a la lista de Partners</a>
                 </div>
             </div>
     </div>

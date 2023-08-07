@@ -60,7 +60,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/giveaways" class="btn btn-secondary">Volver a la lista de Sorteos</a>
+                    <a href={{ route('giveaways.index') }} class="btn btn-secondary">Volver a la lista de Sorteos</a>
                 </div>
             </div>
         @else
@@ -69,7 +69,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información del sorteo"
                     </div>
-                    <a href="/giveaways" class="btn btn-primary">Voler a la lista</a>
+                    <a href={{ route('giveaways.index') }} class="btn btn-primary">Voler a la lista</a>
                 </div>
             </div>
         @endif

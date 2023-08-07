@@ -54,7 +54,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/giveaways" class="btn btn-secondary">Volver a la lista de Sorteos</a>
+                    <a href={{ route('giveaways.index') }} class="btn btn-secondary">Volver a la lista de Sorteos</a>
                 </div>
             </div>
     </div>

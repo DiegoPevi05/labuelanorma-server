@@ -66,7 +66,7 @@
                     </div>
                 </form>
                 <div class="d-flex flex-row-reverse mt-3">
-                    <a href="/webcontents" class="btn btn-secondary">Volver a la lista de Contenido Web</a>
+                    <a href={{ route('webcontents.index') }} class="btn btn-secondary">Volver a la lista de Contenido Web</a>
                 </div>
             </div>
         @else
@@ -75,7 +75,7 @@
                     <div class="alert alert-danger" role="alert">
                         "Hubo un error al intentar traer la información del contenido web"
                     </div>
-                    <a href="/webcontents" class="btn btn-primary">Voler a la lista</a>
+                    <a href={{ route('webcontents.index') }} class="btn btn-primary">Voler a la lista</a>
                 </div>
             </div>
         @endif
