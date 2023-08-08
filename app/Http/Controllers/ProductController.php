@@ -254,13 +254,18 @@ class ProductController extends Controller
                 // Delete old image if new image provided
                 if (isset($oldImageUrls[$i - 1]) && $oldImageUrls[$i - 1] !== null) {
                     $oldImagePath = public_path($oldImageUrls[$i - 1]);
-                    if (file_exists($oldImagePath)) {
+                    if (file_exists($oldImagePath) && is_file($oldImagePath)) {
                         unlink($oldImagePath);
                     }
                 }
             } else {
                 // If no new image provided, keep the old image URL
-                $imageFileNames[] = basename($oldImageUrls[$i - 1]);
+                if (file_exists($oldImageUrls[$i - 1]) && is_file($oldImageUrls[$i - 1])) {
+                    $imageFileNames[] = basename($oldImageUrls[$i - 1]);
+                }else{
+                    $imageFileNames[] = null;
+                }
+
             }
         }
 
@@ -299,9 +304,9 @@ class ProductController extends Controller
             'is_unity' => $is_unity,
             'stock' => $is_unity ? $validatedData['stock'] : 0,
             'image_url_1' => '/images/products/' . $imageFileNames[0],
-            'image_url_2' => isset($imageFileNames[1]) ? '/images/products/' . $imageFileNames[1] : null,
-            'image_url_3' => isset($imageFileNames[2]) ? '/images/products/' . $imageFileNames[2] : null,
-            'image_url_4' => isset($imageFileNames[3]) ? '/images/products/' . $imageFileNames[3] : null,
+            'image_url_2' => isset($imageFileNames[1]) && $imageFileNames[1] != null ? '/images/products/' . $imageFileNames[1] : null,
+            'image_url_3' => isset($imageFileNames[2]) && $imageFileNames[2] != null ? '/images/products/' . $imageFileNames[2] : null,
+            'image_url_4' => isset($imageFileNames[3]) && $imageFileNames[3] != null ? '/images/products/' . $imageFileNames[3] : null,
         ]);
 
         // Create a new product size if the product stock is per unity
@@ -340,7 +345,7 @@ class ProductController extends Controller
         for ($i = 1; $i <= 4; $i++) {
             if (isset($ImagesProduct[$i - 1]) && $ImagesProduct[$i - 1] !== null) {
                 $ImagePath = public_path($ImagesProduct[$i - 1]);
-                if (file_exists($ImagePath)) {
+                if (file_exists($ImagePath) && file_exists($ImagePath)) {
                     unlink($ImagePath);
                 }
             }

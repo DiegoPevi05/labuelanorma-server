@@ -165,12 +165,12 @@ class PartnerController extends Controller
 
             if ($imageOldFilename !== null) {
                 $oldImagePath = public_path($imageOldFilename);
-                if (file_exists($oldImagePath)) {
+                if (file_exists($oldImagePath) && is_file($oldImagePath)) {
                     unlink($oldImagePath);
                 }
             }
         }else{
-            $imageFileName = basename($partner->image_url);
+            $imageFileName = basename($partner->image_brand);
         }
 
         $tags = [];
@@ -217,7 +217,7 @@ class PartnerController extends Controller
 
         if ($imagePartner !== null) {
             $ImagePath = public_path($imagePartner);
-            if (file_exists($ImagePath)) {
+            if (file_exists($ImagePath) && is_file($ImagePath)) {
                 unlink($ImagePath);
             }
         }
