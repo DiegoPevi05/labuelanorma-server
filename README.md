@@ -1,64 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="https://www.labuelanorma.com" target="_blank">
+    <img src="https://www.labuelanorma.com/server/public/Logo.png" width="200">
+  </a>
 </p>
 
-## About Laravel
+# Dashboard Web Management
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This Backend application is developed to connect with the Front-End Web [LaAbuelaNorma](https://www.labuelanorma.com).
+Welcome to the Dashboard Web Management project! This dashboard is designed to serve as a web application for effectively managing the web content for the web LaAbuelaNorma. Admin can create content, giveaways and sell products on the front-end, this application manage the winner of every giveaway & notification, see orders and products and content of the web. Additionally, payments are efficiently processed through the Mercado Pago API. Here are the key features and details of this application:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **User-Friendly Interface:** The dashboard boasts a user-friendly interface built with [boostrap](https://getbootstrap.com/), incorporating pre-made components for quick and easy navigation.
 
-## Learning Laravel
+- **Role-Based Authorization:** Users are categorized into different roles, including ADMIN, MODERATOR and USER. Each role is assigned specific authorization levels to ensure secure and controlled access.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Insightful Home Panel:** Users can access a comprehensive home panel offering diverse statistical insights into their business operations.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Configuration Control:** The application allows flexible configuration of both the Zoom integration and Payment Gateways. Users have complete control over these integrations from within the dashboard.
 
-## Laravel Sponsors
+- **Customizable Access:** While ADMIN and MODERATOR roles have full access to modify information, users  are presented with a simplified view of the dashboard, ensuring a tailored user experience.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **Automated Email Communication:** Admins can effortlessly create meetings and send notifications through the automated email sender. The feature is also useful for password restoration.
 
-### Premium Partners
+- **Data Analysis:** Meeting data can be downloaded in CSV format, facilitating further analysis by ADMIN or MODERATORS.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- **Billing Convenience:** Users can conveniently download bills in PDF format, serving as payment confirmations for purchased services.
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Dependencies and Libraries
 
-## Code of Conduct
+This project relies on the following key dependencies and libraries:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- [Mercado Pago SDK](https://github.com/mercadopago/sdk-php)
+- [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
+- [guzzlehttp/guzzle](https://packagist.org/packages/guzzlehttp/guzzle)
+- [boostrap](https://getbootstrap.com/)
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Installation and Setup
 
-## License
+To install the project on your local machine, you can follow these steps:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Clone this repository to your local directory.
+2. Install project dependencies using the following command:
+```
+composer install
+```
+3. If you have limited server resources, consider installing dependencies locally and exporting the vendor folder using the following command:
+```
+composer dump-autoload
+```
+## Screenshots
+
+Here are some screenshots showcasing the dashboard in action:
+
+![Image1](https://github.com/DiegoPevi05/nuna-server/blob/main/public/github/Dashboard_3.png?raw=true)
+![Image2](https://github.com/DiegoPevi05/nuna-server/blob/main/public/github/Dashboard_2.png?raw=true)
+![Image3](https://github.com/DiegoPevi05/nuna-server/blob/main/public/github/Dashboard_1.png?raw=true)
+
+Thank you for exploring the content of this README.md file. If you have any questions or suggestions, please feel free to reach out!
