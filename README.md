@@ -55,8 +55,8 @@ composer dump-autoload
 
 Here are some screenshots showcasing the dashboard in action:
 
-![Image1](https://github.com/DiegoPevi05/nuna-server/blob/main/public/github/Dashboard_3.png?raw=true)
-![Image2](https://github.com/DiegoPevi05/nuna-server/blob/main/public/github/Dashboard_2.png?raw=true)
-![Image3](https://github.com/DiegoPevi05/nuna-server/blob/main/public/github/Dashboard_1.png?raw=true)
+![Image1](https://github.com/DiegoPevi05/labuelanorma-server/blob/main/public/github/Dashboard_3.png?raw=true)
+![Image2](https://github.com/DiegoPevi05/labuelanorma-server/blob/main/public/github/Dashboard_2.png?raw=true)
+![Image3](https://github.com/DiegoPevi05/labuelanorma-server/blob/main/public/github/Dashboard_1.png?raw=true)
 
 Thank you for exploring the content of this README.md file. If you have any questions or suggestions, please feel free to reach out!
